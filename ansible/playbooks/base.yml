@@ -1,0 +1,6 @@
+---
+- hosts: all
+  user: ubuntu
+  sudo: true
+  roles:
+    - common

@@ -1,0 +1,7 @@
+---
+- hosts: no_udp
+  sudo: yes
+
+  tasks:
+  - name: Disable UDP traffic
+    script: scripts/disable_udp.sh

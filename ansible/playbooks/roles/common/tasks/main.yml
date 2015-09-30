@@ -1,0 +1,5 @@
+---
+- apt: name=iptables-persistent update_cache=yes
+- user: name=lnl password={{password}} shell=/bin/bash group=sudo
+- copy: src=sudoers dest=/etc/sudoers.d/100-lnl
+- lineinfile: dest=/etc/ssh/sshd_config "regexp=PasswordAuthentication no" "line=PasswordAuthentication yes"

@@ -1,0 +1,7 @@
+---
+- hosts: no_icmp
+  sudo: yes
+
+  tasks:
+  - name: Disable ICMP traffic
+    script: scripts/disable_icmp.sh
