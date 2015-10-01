@@ -11,19 +11,18 @@
       "secret_key": "{{user `aws_secret_access_key`}}",
       "region": "us-east-1",
       "instance_type": "m3.medium",
-      "source_ami": "ami-53531436",
+      "source_ami": "ami-2952154c",
       "ssh_username": "ubuntu",
-      "ami_name": "lnl-docker-base-{{timestamp}}"
+      "ami_name": "lnl-individual-{{timestamp}}"
     }
   ],
 
   "provisioners": [
     {
-      "type": "shell",
-      "execute_command": "chmod +x {{ .Path }}; sudo {{ .Vars }} {{ .Path }}",
-      "inline": [
-        "curl -sSL https://get.docker.com/ | sh"
-      ]
+      "type": "ansible-local",
+      "playbook_file": "ansible/playbooks/individual.yml",
+      "playbook_dir": "ansible/playbooks",
+      "inventory_groups": ["individual"]
     }
   ]
 }

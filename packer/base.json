@@ -13,7 +13,7 @@
       "instance_type": "t2.micro",
       "source_ami": "ami-21630d44",
       "ssh_username": "ubuntu",
-      "ami_name": "lnl-network1-base2"
+      "ami_name": "lnl-network1-base"
     }
   ],
 

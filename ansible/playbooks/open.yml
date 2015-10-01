@@ -1,5 +1,0 @@
----
-- hosts:
-  tasks:
-    - name: Open
-

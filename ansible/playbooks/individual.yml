@@ -1,0 +1,13 @@
+---
+- hosts: individual
+  sudo: true
+
+  tasks:
+  - name: Pull docker image
+    command: docker pull fajpunk/nettools
+
+  - name: Copy start script
+    copy: src=files/start_containers dest=/home/lnl/start_containers mode=0755
+
+  - name: Copy shell script
+    copy: src=files/shell dest=/home/lnl/shell mode=0755

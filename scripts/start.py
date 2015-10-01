@@ -9,10 +9,11 @@ logger.addHandler(logging.StreamHandler())
 logger.setLevel(logging.INFO)
 
 amis = {
-    'base': 'ami-e93b7f8c',
-    'no_icmp': 'ami-f7470392',
-    'no_udp': 'ami-67692d02',
-    'docker_base': 'ami-857a3ee0',
+    'base': 'ami-53531436',
+    'no_icmp': 'ami-0f75326a',
+    'no_udp': 'ami-bb7037de',
+    'docker_base': 'ami-2952154c',
+    'individual': '',
 }
 
 kind = sys.argv[1]
@@ -35,5 +36,6 @@ instances = ec2.create_instances(
 )
 instance = instances[0]
 instance.wait_until_running()
+instance.create_tags(Tags=[{'Key': 'Name', 'Value': kind}])
 instance.reload()
 logger.info('Created instance with public ip: {}'.format(instance.public_ip_address))
